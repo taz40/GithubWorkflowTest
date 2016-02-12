@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour {
     CharacterController cc;
     Vector3 movement;
     float verticalVel;
-    float speed = 0;
+    public float speed = 10;
 
 	// Use this for initialization
 	void Start () {
@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour {
         /*if (cc.isGrounded && verticalVel < Physics.gravity.y) {
             verticalVel = Physics.gravity.y;
         }*/  // do not uncomment, this is to test the hotfix.
-
+		movement.y += verticalVel * Time.deltaTime;
         movement.z += Input.GetAxis("Vertical")*Time.deltaTime*speed;
         movement.x += Input.GetAxis("Horizontal")*Time.deltaTime*speed;
         
